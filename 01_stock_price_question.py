@@ -27,3 +27,45 @@ No "shorting"—you need to buy before you can sell. Also, you can't buy and
 sell in the same time step—at least 1 minute has to pass. """
 
 # Start coding from here
+
+#  FOR  ONLY 1 TRANSACTION
+
+
+def get_max_profit(stock_prices):
+    max_profit = 0
+    for i in range(len(stock_prices)):
+        for j in range(i+1, len(stock_prices)):
+            max_profit = max(max_profit, stock_prices[j] - stock_prices[i])
+    return max_profit
+
+
+print(get_max_profit([10, 7, 5, 8, 11, 9]))
+
+# efficent approach
+
+
+def get_max_profit2(stock_price):
+    min_element = 0
+    profit = 0
+    for i in range(len(stock_price)):
+        if min_element >= stock_price[i]:
+            min_element = stock_price[i]
+        elif (profit < (min_element-stock_price[i])):
+            profit = stock_price[i] - min_element
+    return profit
+
+
+print('The efficient approach', get_max_profit2([10, 7, 5, 8, 11, 9]))
+
+# as many transaction as you like
+
+
+def as_many_transactions(stock_price):
+    profit = 0
+    for i in range(len(stock_price)):
+        if stock_price[i] > stock_price[i-1]:
+            profit = profit + (stock_price[i] > stock_price[i-1])
+    return profit
+
+
+# SUPPOSE IF THE PERSON HAS TO FIND THE MAX_PROFIT ON A DAY WITH ONLY TWO TRANSACTIONS.
