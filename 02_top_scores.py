@@ -27,3 +27,24 @@ going to change. Even if we do redesign the game a little, the scores will stay
 around the same order of magnitude. """
 
 # Start coding from here
+
+
+def sort_scores2(scores, high):
+    """sorts a list of scores. high is the highest possible"""
+
+    count = {}
+
+    # calculate the histogram of scores:
+    for x in scores:
+        score = count.get(x, 0)
+        count[x] = score + 1
+
+    # transcribe the histogram into the sorted scores
+    sorts = []
+    for i in range(high + 1):   # i = 0, 1, ... k-1
+        if i in count:
+            eyes = [i] * count[i]
+            sorts.extend(eyes)
+
+    print("scores %s sorted is %s" % (scores, sorts))
+    return sorts

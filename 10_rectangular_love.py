@@ -30,3 +30,27 @@ They are defined as dictionaries like this:
 Your output rectangle should use this format as well.  """
 
 # Start coding from here
+
+
+def rectangular_intersection2(r1, r2):
+    """returns a dictionary containing the coordinates of the intersection of two rects"""
+
+    left_x = max(r1['left_x'], r2['left_x'])
+    right_x = min(r1['left_x'] + r1['width'], r2['left_x'] + r2['width'])
+    width = right_x - left_x
+
+    lower_y = max(r1['bottom_y'], r2['bottom_y'])
+    upper_y = min(r1['bottom_y'] + r1['height'], r2['bottom_y'] + r2['height'])
+    height = upper_y - lower_y
+
+    if width <= 0 or height <= 0:
+        return None
+
+    intersection = {
+        'left_x': left_x,
+        'bottom_y': lower_y,
+        'width': width,
+        'height': height
+    }
+
+    return intersection

@@ -28,3 +28,9 @@ started working from the beginning of the dictionary. This list is huge
 To keep things simple, you can assume all words are lowercase.  """
 
 # Start coding from here
+
+
+def rotation_point(alist):
+    for i in range(len(alist)):
+        if alist[i][0] > alist[i+1][0]:
+            return i+1

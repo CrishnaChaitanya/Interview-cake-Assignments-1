@@ -11,3 +11,16 @@ Here's a sample linked list node class:
         self.next  = None   """
 
 # Start coding from here
+
+
+def reverseLinkedList(root):
+    cur = root
+    prev = None
+
+    while cur:
+        nxt = cur.next
+        cur.next = prev
+        prev = cur
+        cur = nxt
+
+    return prev
