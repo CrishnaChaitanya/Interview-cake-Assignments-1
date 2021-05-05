@@ -41,14 +41,3 @@ def eggDrop(n, k):
             min = res
 
     return min + 1
-
-
-# Driver Code
-if __name__ == "__main__":
-
-    n = 2
-    k = 100
-    print("Minimum number of trials in worst case with",
-          n, "eggs and", k, "floors is", eggDrop(n, k))
-
-# This code is contributed by ita_c
